@@ -12,14 +12,13 @@
                     <input type="text" name="titre" value="{{$manga->titre}}" class="form-control" required>
                 </div>
             </div>
+
             <div class="form-group">
                 <label class="col-md-6" >Genre :</label>
                 <div class="col-md-6">
-                    <select class="form-select" name="genre">
+                    <select class="form-select @error('genre') border-danger @enderror" name="genre">
                         <option value="" disabled selected >Selectionnez un genre :</option>
                         @foreach($genres as $genre)
-
-
                             <option value="{{$genre->id_genre}}" @if($manga->id_genre == $genre->id_genre)selected @endif>
                                 {{$genre->lib_genre}}
                             </option>
@@ -27,10 +26,11 @@
                     </select>
                 </div>
             </div>
+
             <div class="form-group">
                 <label class="col-md-6" >Dessinateur :</label>
                 <div class="col-md-6">
-                    <select class="form-select" name="dess">
+                    <select class="form-select @error('dessinateur') border-danger @enderror" name="dess">
                         <option value="" disabled >Selectionnez un dessinateur :</option>
                         @foreach($dessinateur as $dess)
                             <option value="{{$dess->id_dessinateur}}" @if($manga->id_dessinateur == $dess->id_dessinateur)selected @endif>
@@ -42,8 +42,9 @@
             </div>
             <div class="form-group">
                 <label class="col-md-6" >Scénariste :</label>
+
                 <div class="col-md-6">
-                    <select class="form-select" name="sce">
+                    <select class="form-select @error('scenariste') border-danger @enderror" name="sce">
                         <option value="" disabled >Selectionnez un scénariste :</option>
                         @foreach($scenariste as $sce)
                             <option value="{{$sce->id_scenariste}}" @if($manga->id_scenariste == $sce->id_scenariste)selected @endif>
@@ -80,4 +81,13 @@
             </div>
         </div>
     </form>
+    @if($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach($errors->all() as $error)
+                    <li>{{$error}}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
 @endsection

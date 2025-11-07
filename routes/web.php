@@ -8,6 +8,7 @@ Route::get('/', function () {
 });
 
 Route::get('/listerMangas', [MangaController::class, 'listMangas'])->name('listMangas');
+Route::get('/listerMangasGenre', [MangaController::class, 'listMangasGenre'])->name('listMangasGenre');
 Route::get('/editerManga/{id}', [MangaController::class, 'editManga'])->name('editerManga');
 Route::get('/ajouterManga', [MangaController::class, 'addManga'])->name('ajouterManga');
 Route::post('/validerManga', [MangaController::class, 'validManga'])->name('validManga');
