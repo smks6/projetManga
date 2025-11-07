@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-    <h1></h1>
+    <h1>Liste des mangas</h1>
     <table class="table table-bordered table-striped">
         <thead>
         <tr>
